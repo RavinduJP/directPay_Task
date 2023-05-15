@@ -31,12 +31,14 @@ public class ItemServiceImpl implements ItemService {
         if (itemRepository.existsById(updateItem.getId())) {
             Item item = itemRepository.getById(updateItem.getId());
             item.setSKU(updateItem.getSKU());
+            item.setAddedDate(updateItem.getAddedDate());
+            item.setCategory(updateItem.getCategory());
+            item.setDescription(updateItem.getDescription());
             item.setItemCount(updateItem.getItemCount());
             item.setItemName(updateItem.getItemName());
             item.setItemPrice(updateItem.getItemPrice());
-            item.setCategory(updateItem.getCategory());
-            item.setDescription(updateItem.getDescription());
             item.setRemarks(updateItem.getRemarks());
+            item.setId(updateItem.getId());
 
             itemRepository.save(item);
 
