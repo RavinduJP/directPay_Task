@@ -37,9 +37,9 @@ public class ItemController {
     }
 
 //    delete Item
-    @DeleteMapping(path = "/delete-item/{id}")
-    public String deleteItem(@PathVariable(value = "id") Long id) {
-        String deleted = itemService.deleteItem(id);
+    @DeleteMapping(path = "/delete-item/{sKU}")
+    public String deleteItem(@PathVariable(value = "sKU") Long sKU) {
+        String deleted = itemService.deleteItem(sKU);
 
         return deleted;
     }

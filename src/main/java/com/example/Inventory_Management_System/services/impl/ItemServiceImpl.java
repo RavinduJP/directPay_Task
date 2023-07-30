@@ -1,4 +1,4 @@
-package com.example.Inventory_Management_System.repositories.impl;
+package com.example.Inventory_Management_System.services.impl;
 
 import com.example.Inventory_Management_System.entities.Item;
 import com.example.Inventory_Management_System.repositories.ItemRepository;
@@ -29,7 +29,7 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public String editItem(Item updateItem) {
         if (itemRepository.existsById(updateItem.getId())) {
-            Item item = itemRepository.getById(updateItem.getId());
+            Item item = itemRepository.getBysKU(updateItem.getSKU());
             item.setSKU(updateItem.getSKU());
             item.setAddedDate(updateItem.getAddedDate());
             item.setCategory(updateItem.getCategory());
@@ -38,7 +38,7 @@ public class ItemServiceImpl implements ItemService {
             item.setItemName(updateItem.getItemName());
             item.setItemPrice(updateItem.getItemPrice());
             item.setRemarks(updateItem.getRemarks());
-            item.setId(updateItem.getId());
+//            item.setId(updateItem.getId());
 
             itemRepository.save(item);
 
